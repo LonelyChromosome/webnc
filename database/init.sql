@@ -7,3 +7,9 @@ CREATE TABLE IF NOT EXISTS posts (
     title VARCHAR(255),
     description TEXT
 );
+
+INSERT INTO posts(title, description)
+VALUES
+('NodeJS', 'Lập trình backend với Node.js thuần'),
+('Web động', 'Server trả về nội dung tương ứng với request'),
+('React', 'Lập trình giao diện frontend với React');
