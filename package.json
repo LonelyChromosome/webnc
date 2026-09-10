@@ -1,0 +1,11 @@
+{
+  "name": "webnc",
+  "version": "1.0.0",
+  "description": "Node.js web project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "license": "ISC"
+}
