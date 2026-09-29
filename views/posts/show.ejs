@@ -1,0 +1,10 @@
+<%- include("../partials/header", { title: post.title }) %>
+<%- include("../partials/navbar") %>
+<main class="container">
+  <article class="post-detail">
+    <h1><%= post.title %></h1>
+    <p><%= post.description %></p>
+  </article>
+  <p><a href="/news">Quay lại danh sách</a></p>
+</main>
+<%- include("../partials/footer") %>
