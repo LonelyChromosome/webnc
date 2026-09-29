@@ -1,45 +1,62 @@
-# WEBNC - Lab 10 Express MVC
+# WEBNC - Lab 11 Express REST API
 
-Branch `lab10-mvc` refactor project sang Express theo mô hình MVC đúng yêu cầu Lab 10.
+Branch `lab11-rest-api` được tạo từ `lab10-mvc`.
 
-## Cấu trúc
-- `routes/`: định nghĩa URL
-- `controllers/`: xử lý request/response
-- `models/`: truy vấn MySQL
-- `middlewares/`: kiểm tra đăng nhập và đưa session vào view
-- `views/`: EJS chia theo `posts/`, `auth/`, `partials/`
-- `public/`: CSS
-- `app.js`: khởi tạo Express, session và mount route
+Lab 11 giữ nguyên toàn bộ phần EJS/MVC của Lab 10 và bổ sung REST API dùng chung các model hiện có.
 
-## Database
-Chạy `database.sql` trong MySQL.
+## API posts
 
-Mặc định:
-- host: `localhost`
-- user: `root`
-- password: `123456`
-- database: `newsdb`
+- `GET /api/posts` - danh sách bài viết
+- `GET /api/posts/search?keyword=node` - tìm kiếm
+- `GET /api/posts/:id` - chi tiết
+- `POST /api/posts` - thêm bài viết
+- `PUT /api/posts/:id` - cập nhật
+- `DELETE /api/posts/:id` - xóa
 
-Tài khoản demo:
-```text
-username: admin
-password: 123456
+Ba API thêm/sửa/xóa yêu cầu đăng nhập session.
+
+## API auth
+
+- `POST /api/auth/login`
+- `GET /api/auth/me`
+- `POST /api/auth/logout`
+
+Ví dụ đăng nhập:
+
+```json
+{
+  "username": "admin",
+  "password": "123456"
+}
+```
+
+## Test Postman
+
+### Thêm bài viết
+
+`POST http://localhost:3000/api/posts`
+
+```json
+{
+  "title": "Bài viết từ API",
+  "description": "Bài viết này được thêm bằng REST API"
+}
+```
+
+### Cập nhật
+
+`PUT http://localhost:3000/api/posts/1`
+
+```json
+{
+  "title": "Tiêu đề đã cập nhật",
+  "description": "Mô tả đã cập nhật bằng REST API"
+}
 ```
 
 ## Chạy
+
 ```bash
 npm install
 npm start
 ```
-
-Các URL cần kiểm tra:
-- `/`
-- `/news`
-- `/news/search?keyword=node`
-- `/news/1`
-- `/login`
-- `/logout`
-- `/news/add`
-- `/news/1/edit`
-
-Thêm, sửa và xóa bài viết yêu cầu đăng nhập.
