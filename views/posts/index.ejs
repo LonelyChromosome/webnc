@@ -1,0 +1,44 @@
+<%- include("../partials/header", { title: "Danh sách bài viết" }) %>
+<%- include("../partials/navbar") %>
+<main class="container">
+  <div class="page-head">
+    <div>
+      <h1>Danh sách bài viết</h1>
+      <% if (typeof keyword !== "undefined" && keyword) { %>
+        <p>Kết quả tìm kiếm cho: <strong><%= keyword %></strong></p>
+      <% } %>
+    </div>
+    <% if (user) { %>
+      <a class="button-link" href="/news/add">Thêm bài viết</a>
+    <% } %>
+  </div>
+
+  <form method="GET" action="/news/search" class="search-form">
+    <input type="text" name="keyword" placeholder="Nhập từ khóa" value="<%= typeof keyword !== 'undefined' ? keyword : '' %>">
+    <button type="submit">Tìm kiếm</button>
+  </form>
+
+  <% if (posts.length === 0) { %>
+    <p>Không tìm thấy bài viết.</p>
+  <% } else { %>
+    <ul class="post-list">
+      <% posts.forEach(post => { %>
+        <li>
+          <div>
+            <a class="post-title" href="/news/<%= post.id %>"><%= post.title %></a>
+            <p><%= post.description %></p>
+          </div>
+          <% if (user) { %>
+            <div class="actions">
+              <a href="/news/<%= post.id %>/edit">Sửa</a>
+              <form action="/news/<%= post.id %>/delete" method="POST" onsubmit="return confirm('Bạn có chắc muốn xóa bài viết này?')">
+                <button type="submit" class="danger">Xóa</button>
+              </form>
+            </div>
+          <% } %>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</main>
+<%- include("../partials/footer") %>
