@@ -1,14 +1,16 @@
 {
   "name": "webnc",
   "version": "1.0.0",
-  "description": "Node.js web project",
-  "main": "backend/server.js",
+  "description": "Lab 10 - Express MVC",
+  "main": "app.js",
   "scripts": {
-    "start": "node backend/server.js",
-    "dev": "node backend/server.js"
+    "start": "node app.js",
+    "dev": "node app.js"
   },
   "dependencies": {
     "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
     "mysql2": "^3.15.0"
   },
   "license": "ISC"
