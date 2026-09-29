@@ -1,0 +1,18 @@
+<%- include("../partials/header", { title: "Đăng nhập" }) %>
+<%- include("../partials/navbar") %>
+<main class="container narrow">
+  <h1>Đăng nhập</h1>
+  <% if (error) { %>
+    <p class="error"><%= error %></p>
+  <% } %>
+  <form action="/login" method="POST" class="editor-form">
+    <label>Username
+      <input type="text" name="username" required>
+    </label>
+    <label>Password
+      <input type="password" name="password" required>
+    </label>
+    <button type="submit">Đăng nhập</button>
+  </form>
+</main>
+<%- include("../partials/footer") %>
