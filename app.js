@@ -4,6 +4,8 @@ const session = require("express-session");
 
 const postRoutes = require("./routes/postRoute");
 const authRoutes = require("./routes/authRoute");
+const postApiRoutes = require("./routes/api/postApiRoute");
+const authApiRoutes = require("./routes/api/authApiRoute");
 const { usesession } = require("./middlewares/authMiddleware");
 
 const app = express();
@@ -30,6 +32,9 @@ app.get("/", (req, res) => {
 
 app.use("/", authRoutes);
 app.use("/news", postRoutes);
+
+app.use("/api/posts", postApiRoutes);
+app.use("/api/auth", authApiRoutes);
 
 app.use((req, res) => {
   res.status(404).send("404 - Không tìm thấy trang");
