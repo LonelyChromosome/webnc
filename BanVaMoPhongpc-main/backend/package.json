@@ -1,0 +1,20 @@
+{
+  "name": "kada-store-backend",
+  "version": "1.0.0",
+  "description": "KaDa Store API - Express + SQLite + JWT",
+  "main": "app.js",
+  "private": true,
+  "type": "commonjs",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "sql.js": "^1.15.2"
+  }
+}
